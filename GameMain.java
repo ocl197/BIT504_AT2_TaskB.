@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+import java.awt.Graphics;
 
 
 public class GameMain extends JPanel implements MouseListener{
@@ -43,7 +43,7 @@ public class GameMain extends JPanel implements MouseListener{
 		addMouseListener(this);
 	    
 		// Setup the status bar (JLabel) to display status message       
-		statusBar = new JLabel();       
+		statusBar = new JLabel("Oliver");       
 		statusBar.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 14));       
 		statusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));       
 		statusBar.setOpaque(true);       
@@ -55,32 +55,36 @@ public class GameMain extends JPanel implements MouseListener{
 		// account for statusBar height in overall height
 		setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT + 30));
 		
-		board = new Board();
-		// TODO: Create a new instance of the game "Board"class. HINT check the variables above for the correct name
-		new Board();
 		
+		// TODO: Create a new instance of the game "Board"class. HINT check the variables above for the correct name
+		//Board board = new Board();
 		//TODO: call the method to initialise the game board
+		board = new Board();
 
+		
+		
 	}
 	
 	public static void main(String[] args) {
 		    // Run GUI code in Event Dispatch thread for thread safety.
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-	         public void run() {
+	         
+
+			public void run() {
 				//create a main window to contain the panel
 				JFrame frame = new JFrame(TITLE);
-				
+
+
 				//TODO: create the new GameMain panel and add it to the frame
+
 				frame.add(new GameMain());
-						
-				
-				
+				//frame.add(new GameMain());				
 				//TODO: set the default close operation of the frame to exit_on_close
-		            
-				
+		      
 				frame.pack();             
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
+				
 	         }
 		 });
 	}
