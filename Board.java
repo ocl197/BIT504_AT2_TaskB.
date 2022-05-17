@@ -9,12 +9,16 @@ public class Board {
 	
 	//2D array of ROWS-by-COLS Cell instances
 	Cell [][] cells;
-	
 	/** Constructor to create the game board */
 	public Board() {
 		
 	 //TODO: initialize the cells array using ROWS and COLS constants 
+		
 		cells = new Cell[GameMain.ROWS][GameMain.COLS];
+		
+		
+		
+		
 		
 		for (int row = 0; row < GameMain.ROWS; ++row) {
 			for (int col = 0; col < GameMain.COLS; ++col) {
