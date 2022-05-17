@@ -179,6 +179,7 @@ public class GameMain extends JPanel implements MouseListener{
 				// move  
 				System.out.println(currentPlayer);
 				System.out.println(rowSelected + ", " + colSelected);
+				System.out.println(Arrays.toString(board.cells));
 				board.cells[rowSelected][colSelected].content = currentPlayer; 
 				// update currentState                  
 				updateGame(currentPlayer, rowSelected, colSelected); 
