@@ -30,23 +30,38 @@ public class Board {
 
 	 /** Return true if it is a draw (i.e., no more EMPTY cells) */ 
 	public boolean isDraw() {
-		 
+		 boolean result = true;
+		 int x = 0;
 		// TODO: Check whether the game has ended in a draw. 
 		// Hint: Use a nested loop (see the constructor for an example). Check whether any of the cells content in the board grid are Player.Empty. If they are, it is not a draw.
 		// Hint: Return false if it is not a draw, return true if there are no empty positions left
-		   
-		return false;
+		 
+		 for (int i = 0; i < 3; i++)
+		    {
+		        for(int j =0; j < 3; j++)
+		        {
+		            if (cells[i][j].content == Player.Empty)
+		            {
+		                result = false;
+		            }
+		        }
+		    }
+		 return result;
+	}
+		
 
 		
-	}
+	
 	
 	/** Return true if the current player "thePlayer" has won after making their move  */
 	public boolean hasWon(Player thePlayer, int playerRow, int playerCol) {
 		 // check if player has 3-in-that-row
 		if(cells[playerRow][0].content == thePlayer && cells[playerRow][1].content == thePlayer && cells[playerRow][2].content == thePlayer )
 			return true; 
+		    
 		if(cells[0][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer && cells[2][playerCol].content == thePlayer )
 			return true;
+			
 			
 			
 			// TODO: Check if the player has 3 in the playerCol.
@@ -57,13 +72,15 @@ public class Board {
 		 // 3-in-the-diagonal
 		if( cells[0][0].content == thePlayer && cells[1][1].content == thePlayer && cells[2][2].content == thePlayer)
 			return true;
+			System.out.println("won 3");
 		 
 		
 		if(cells[2][2].content == thePlayer && cells[1][1].content == thePlayer && cells[0][0].content == thePlayer)
 			return true;
+			
 		// TODO: Check the diagonal in the other direction
 		
-
+		System.out.println(thePlayer);
 		
 		//no winner, keep playing
 		return false;
