@@ -45,7 +45,7 @@ public class GameMain extends JPanel implements MouseListener{
 		addMouseListener(this);
 	    
 		// Setup the status bar (JLabel) to display status message       
-		statusBar = new JLabel("Oliver");       
+		statusBar = new JLabel("Tic Tac Toe");       
 		statusBar.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 14));       
 		statusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));       
 		statusBar.setOpaque(true);       
@@ -154,6 +154,7 @@ public class GameMain extends JPanel implements MouseListener{
 				if (board.isDraw ()) {
 					
 				// TODO: set the currentstate to the draw gamestate
+					currentState = GameState.Draw;
 
 			}
 			//otherwise no change to current state of playing
@@ -180,6 +181,7 @@ public class GameMain extends JPanel implements MouseListener{
 				System.out.println(currentPlayer);
 				System.out.println(rowSelected + ", " + colSelected);
 				System.out.println(Arrays.toString(board.cells));
+				//statusBar.setText("'O' Won! Click to play again."); 
 				board.cells[rowSelected][colSelected].content = currentPlayer; 
 				// update currentState                  
 				updateGame(currentPlayer, rowSelected, colSelected); 
