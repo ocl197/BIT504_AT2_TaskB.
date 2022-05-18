@@ -13,7 +13,7 @@ public class Board {
 	public Board() {
 		
 	 //TODO: initialize the cells array using ROWS and COLS constants 
-		
+		//Creates new Cell object named cells
 		cells = new Cell[GameMain.ROWS][GameMain.COLS];
 		
 		
@@ -30,17 +30,18 @@ public class Board {
 
 	 /** Return true if it is a draw (i.e., no more EMPTY cells) */ 
 	public boolean isDraw() {
+		//using the boolean variable result to store the return value. 
 		 boolean result = true;
 		 int x = 0;
 		// TODO: Check whether the game has ended in a draw. 
 		// Hint: Use a nested loop (see the constructor for an example). Check whether any of the cells content in the board grid are Player.Empty. If they are, it is not a draw.
 		// Hint: Return false if it is not a draw, return true if there are no empty positions left
-		 
-		 for (int i = 0; i < 3; i++)
+		 //Using two for loops I check each cell to see if at least one is empty. returning false if there is a cell empty.
+		 for (int row = 0; row < 3; row++)
 		    {
-		        for(int j =0; j < 3; j++)
+		        for(int col =0; col < 3; col++)
 		        {
-		            if (cells[i][j].content == Player.Empty)
+		            if (cells[row][col].content == Player.Empty)
 		            {
 		                result = false;
 		            }
@@ -58,7 +59,7 @@ public class Board {
 		 // check if player has 3-in-that-row
 		if(cells[playerRow][0].content == thePlayer && cells[playerRow][1].content == thePlayer && cells[playerRow][2].content == thePlayer )
 			return true; 
-		    
+		//Checks if player has one by row.
 		if(cells[0][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer && cells[2][playerCol].content == thePlayer )
 			return true;
 			
@@ -72,15 +73,14 @@ public class Board {
 		 // 3-in-the-diagonal
 		if( cells[0][0].content == thePlayer && cells[1][1].content == thePlayer && cells[2][2].content == thePlayer)
 			return true;
-			System.out.println("won 3");
 		 
-		
+		//checks  and returns true if the player has won. 
 		if(cells[2][2].content == thePlayer && cells[1][1].content == thePlayer && cells[0][0].content == thePlayer)
 			return true;
 			
 		// TODO: Check the diagonal in the other direction
 		
-		System.out.println(thePlayer);
+	
 		
 		//no winner, keep playing
 		return false;
