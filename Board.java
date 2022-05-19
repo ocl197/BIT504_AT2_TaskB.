@@ -56,11 +56,16 @@ public class Board {
 	
 	/** Return true if the current player "thePlayer" has won after making their move  */
 	public boolean hasWon(Player thePlayer, int playerRow, int playerCol) {
-		 // check if player has 3-in-that-row
+		System.out.println(cells[2][playerCol].content);
+		System.out.println(cells[playerRow][0].content);
+		
+		
+		// check if player has 3-in-that-row
 		if(cells[playerRow][0].content == thePlayer && cells[playerRow][1].content == thePlayer && cells[playerRow][2].content == thePlayer )
 			return true; 
 		//Checks if player has one by row.
-		if(cells[0][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer && cells[2][playerCol].content == thePlayer )
+		if(cells[2][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer && cells[0][playerCol].content == thePlayer )
+			
 			return true;
 			
 			
