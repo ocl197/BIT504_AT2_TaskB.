@@ -13,7 +13,7 @@ public class Board {
 	public Board() {
 		
 	 //TODO: initialize the cells array using ROWS and COLS constants 
-		//Creates new Cell object named cells
+		//Creates new Cell object named cells.
 		cells = new Cell[GameMain.ROWS][GameMain.COLS];
 		
 		
